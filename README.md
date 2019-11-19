@@ -2,7 +2,8 @@
 From the directory this README is in the following commands can be used
 
 
-#NOTE TO THE TA: Multiple clients work at a time (for bonus points)
+#NOTE TO THE TA: Multiple clients work at a time (for bonus points), although concurrency is somewhat undefined behavior
+
 https://github.com/killmequickdeal/RPCGEN
 
 ####make 
