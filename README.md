@@ -18,27 +18,56 @@ https://github.com/killmequickdeal/RPCGEN
 
 Examples:
 --
-#####[rjdeal@in-csci-rrpc02 RFT]$ make
-    javac  src/*.java
+#####[rjdeal@in-csci-rrpc03 RPC]$ make
+g++ -g -D_REENTRANT  -c -o add_clnt.o add_clnt.c
+g++ -g -D_REENTRANT  -c -o add_client.o add_client.c
+g++ -g -D_REENTRANT  -c -o add_xdr.o add_xdr.c
+g++ -g -D_REENTRANT   -o add_client  add_clnt.o add_client.o add_xdr.o -lnsl -lpthread
+g++ -g -D_REENTRANT  -c -o add_svc.o add_svc.c
+g++ -g -D_REENTRANT  -c -o add_server.o add_server.c
+g++ -g -D_REENTRANT   -o add_server  add_svc.o add_server.o add_xdr.o -lnsl -lpthread
+[rjdeal@in-csci-rrpc03 RPC]$
 
-#####[rjdeal@in-csci-rrpc02 RFT]$ make clean
-    rm -f ./src/Client.class ./src/Utility.class ./src/Server.class
+#####[rjdeal@in-csci-rrpc03 RPC]$ make clean
+rm -f core  add_clnt.o add_client.o add_xdr.o  add_svc.o add_server.o add_xdr.o add_client add_server
+[rjdeal@in-csci-rrpc03 RPC]$
 
-#####[rjdeal@in-csci-rrpc02 RFT]$ make run-server
-    java  -cp src Server
-    Waiting for connections
+#####[rjdeal@in-csci-rrpc03 RPC]$ ./add_server
 
-#####[rjdeal@in-csci-rrpc01 RFT]$ make run-client
-     java  -cp src Client
-     Just connected to /10.234.136.56:7555
-     
-     
-     Choose an option:
-     1: register
-     2: create
-     3: list
-     4: transfer
-     5: summary
-     6: subset
-     7: delete
-     8: close
+
+#####[rjdeal@tesla RPC]$ ./add_client 10.234.136.57
+
+Original string: Encryption Test
+Reversed, Encrypted string: ?8.k%$"?;29(%
+
+Current Date and Time: Tue Nov 19 00:30:58 2019
+
+
+Sorted list results:
+1 3 5 8
+
+Current files in directory:
+.
+..
+add_server.c
+add_client.c
+add_server.o
+outcomes.txt
+add.x
+add_svc.c
+add.h
+.nfs000000000d77b5e0000003a5
+add_clnt.o
+add_xdr.o
+add_svc.o
+add_server
+add_xdr.c
+add_clnt.c
+Makefile
+DealA3.zip
+add_client.o
+add_client
+
+Matrix Multiply Results:
+28 13 39 67
+[rjdeal@tesla RPC]$
